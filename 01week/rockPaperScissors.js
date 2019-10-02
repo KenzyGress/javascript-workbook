@@ -67,6 +67,25 @@ if (typeof describe === "function") {
       assert.equal(rockPaperScissors("paper", "scissors"), "Hand two wins!");
       assert.equal(rockPaperScissors("rock", "scissors"), "Hand one wins!");
     });
+    it("should detect an abbreviation for rock, paper, scissors", () => {
+      assert.equal(rockPaperScissors("r", "r"), "It's a tie!");
+      assert.equal(rockPaperScissors("p", "p"), "It's a tie!");
+      assert.equal(rockPaperScissors("s", "s"), "It's a tie!");
+      assert.equal(rockPaperScissors("r", "s"), "Hand one wins!!");
+      assert.equal(rockPaperScissors("s", "p"), "Hand one wins!!");
+      assert.equal(rockPaperScissors("p", "r"), "Hand one wins!!");
+      assert.equal(rockPaperScissors("r", "p"), "Hand two wins!!");
+      assert.equal(rockPaperScissors("p", "s"), "Hand two wins!!");
+      assert.equal(rockPaperScissors("s", "r"), "Hand two wins!!");
+    });
+    it("should detect an unknown option", () => {
+      assert.equal(rockPaperScissors("rock", "volcano"), "It doesn't work!");
+      assert.equal(rockPaperScissors("kazoo", "paper"), "It doesn't work!");
+      assert.equal(
+        rockPaperScissors("scissors", "alligator"),
+        "It doesn't work!"
+      );
+    });
   });
 } else {
   getPrompt();
